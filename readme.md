@@ -1,3 +1,3 @@
 # Scratch repo
 
-This is a tmp repository mainly used exemplify commits and workflows.
+This repo contains a C++ function that reads the contents of a file.
