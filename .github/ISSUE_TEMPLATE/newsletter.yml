@@ -1,0 +1,115 @@
+name: Newsletter Edition
+description: Create a new NL-RSE Community Newsletter issue
+title: "Newsletter - <Month Year>"
+labels:
+  - newsletter
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## NL-RSE Newsletter Planning
+
+        Use this issue to coordinate the next newsletter edition.
+
+        Community members: please comment below with:
+        - events and dates for your diary
+        - community news
+        - blog posts, tools, resources, or opportunities
+        - jobs, calls, workshops, conferences, etc.
+
+        Please include links and a short description where possible.
+
+  - type: input
+    id: edition
+    attributes:
+      label: Newsletter edition
+      description: Month and year of this newsletter
+      placeholder: "July 2026"
+    validations:
+      required: true
+
+  - type: input
+    id: publication-date
+    attributes:
+      label: Planned publication date
+      description: When do we expect to publish?
+      placeholder: "2026-07-31"
+    validations:
+      required: true
+
+  - type: textarea
+    id: intro
+    attributes:
+      label: Intro / editorial note
+      description: Draft intro for this edition
+      placeholder: |
+        Welcome to the July 2026 edition of the NL-RSE Community Newsletter...
+      render: markdown
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Newsletter status
+      options:
+        - Collecting content
+        - Drafting
+        - Reviewing
+        - Ready to publish
+        - Published
+    validations:
+      required: true
+
+  - type: textarea
+    id: dates-for-diary
+    attributes:
+      label: Dates for your diary
+      description: Initial items already known to the core team
+      placeholder: |
+        - Event name (date + short description + link)
+      render: markdown
+
+  - type: textarea
+    id: news
+    attributes:
+      label: News
+      description: Community updates, announcements, opportunities
+      placeholder: |
+        - News item (short summary + link)
+      render: markdown
+
+  - type: textarea
+    id: blog-posts-tools-more
+    attributes:
+      label: Blog posts, tools & more
+      description: Interesting articles, tools, videos, podcasts, guides, etc.
+      placeholder: |
+        - Resource (short description + link)
+      render: markdown
+
+  - type: textarea
+    id: editorial-checklist
+    attributes:
+      label: Editorial checklist
+      value: |
+        - [ ] Create newsletter branch
+        - [ ] Gather community suggestions from comments
+        - [ ] Draft newsletter content
+        - [ ] Check dates and links
+        - [ ] Proofread
+        - [ ] Publish on website
+        - [ ] Send mailing list announcement
+      render: markdown
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Contributing
+
+        Community members: add suggestions in the comments below.
+
+        Helpful format:
+
+        **Category:** Dates / News / Blog posts & tools  
+        **Title:**  
+        **Link:**  
+        **Why it matters to NL-RSE:**
