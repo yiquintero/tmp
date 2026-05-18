@@ -1,8 +1,8 @@
 name: Newsletter Edition
 description: Create a new NL-RSE Community Newsletter issue
 title: "Newsletter - <Month Year>"
-labels:
-  - newsletter
+labels: ["newsletter"]
+
 body:
   - type: markdown
     attributes:
@@ -12,10 +12,10 @@ body:
         Use this issue to coordinate the next newsletter edition.
 
         Community members: please comment below with:
-        - events and dates for your diary
+        - events and dates for your calendar
         - community news
-        - blog posts, tools, resources, or opportunities
-        - jobs, calls, workshops, conferences, etc.
+        - job opportunities
+        - blog posts, tools, resources
 
         Please include links and a short description where possible.
 
@@ -37,6 +37,18 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: status
+    attributes:
+      label: Newsletter status
+      options:
+        - Collecting content
+        - Closed for content
+        - Published
+      default: 0
+    validations:
+      required: true
+
   - type: textarea
     id: intro
     attributes:
@@ -46,44 +58,40 @@ body:
         Welcome to the July 2026 edition of the NL-RSE Community Newsletter...
       render: markdown
 
-  - type: dropdown
-    id: status
-    attributes:
-      label: Newsletter status
-      options:
-        - Collecting content
-        - Drafting
-        - Reviewing
-        - Ready to publish
-        - Published
-    validations:
-      required: true
-
   - type: textarea
-    id: dates-for-diary
+    id: dates-for-calendar
     attributes:
-      label: Dates for your diary
-      description: Initial items already known to the core team
+      label: Dates for your calendar
+      description: Events, conferences, deadlines, workshops, calls, etc.
       placeholder: |
-        - Event name (date + short description + link)
+        - Event name (**date**) — short description + link
       render: markdown
 
   - type: textarea
     id: news
     attributes:
       label: News
-      description: Community updates, announcements, opportunities
+      description: Community updates, announcements, reports, opportunities, etc.
       placeholder: |
-        - News item (short summary + link)
+        - News item — short summary + link
+      render: markdown
+
+  - type: textarea
+    id: job-postings
+    attributes:
+      label: Job postings
+      description: Relevant research software, research engineering, data, or open science jobs
+      placeholder: |
+        - Job title — organisation + short summary + link
       render: markdown
 
   - type: textarea
     id: blog-posts-tools-more
     attributes:
       label: Blog posts, tools & more
-      description: Interesting articles, tools, videos, podcasts, guides, etc.
+      description: Interesting articles, tools, podcasts, videos, guides, resources, etc.
       placeholder: |
-        - Resource (short description + link)
+        - Resource — short description + link
       render: markdown
 
   - type: textarea
@@ -91,13 +99,18 @@ body:
     attributes:
       label: Editorial checklist
       value: |
-        - [ ] Create newsletter branch
-        - [ ] Gather community suggestions from comments
-        - [ ] Draft newsletter content
-        - [ ] Check dates and links
-        - [ ] Proofread
-        - [ ] Publish on website
-        - [ ] Send mailing list announcement
+        - [x] Open newsletter issue
+        - [ ] Create newsletter branch `newsletter-<yyyy>-<mm>`
+        - [ ] Collect community input from issue comments
+        - [ ] Update newsletter status to **Closed for content**
+        - [ ] Draft newsletter content. Proofread checking dates and links.
+        - [ ] Open pull request to merge newsletter branch into `main`
+        - [ ] Notify the core team that the PR is ready for review
+        - [ ] Resolve review comments and merge PR.
+        - [ ] Update newsletter status to **Published**
+        - [ ] Send newsletter to mailing list
+        - [ ] Share announcement on UKRSE Slack Netherlands channel
+        - [ ] Share announcement on LinkedIn
       render: markdown
 
   - type: markdown
@@ -109,7 +122,7 @@ body:
 
         Helpful format:
 
-        **Category:** Dates / News / Blog posts & tools  
+        **Category:** Calendar / News / Jobs / Blog posts & tools  
         **Title:**  
         **Link:**  
-        **Why it matters to NL-RSE:**
+        **Why it matters to the NL-RSE community:**
