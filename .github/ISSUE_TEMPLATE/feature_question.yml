@@ -41,7 +41,7 @@ body:
       render: cpp
       placeholder: // Your code here
 
-- type: input
+  - type: input
     id: harmony-version
     attributes:
       label: Harmony Version (git commit ID)
