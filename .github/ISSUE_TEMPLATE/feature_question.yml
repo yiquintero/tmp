@@ -55,7 +55,7 @@ body:
       label: Operating System
       placeholder: e.g., Ubuntu 22.04, Windows 11, MacOS 15.0
   
-- type: checkboxes
+  - type: checkboxes
     id: checklist
     attributes:
       label: Checklist
@@ -67,7 +67,7 @@ body:
         - label: I have provided a detailed description of the feature or question.
           required: true
         - label: I have added screenshots and code snippets where appropriate.
-          required: false
+          required: true
 
   - type: markdown
     attributes:
