@@ -1,0 +1,88 @@
+name: Bug report
+description: Something is not working as expected: crashes, incorrect results, etc.
+title: "Bug: <Add a short description>"
+labels: ["triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting your issue, please make sure to check previous issues and the project's [documentation](../../docs)
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Describe the bug in as much detail as possible. Let us know:
+        - What you were trying to do
+        - What you expected to happen
+        - What actually happened.
+        Include any relevant error messages, logs, screenshots, or other context that may help.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Provide the smallest set of steps needed to reproduce the issue.
+        Leave this field blank for feature requests, questions, or other issue types.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+      
+  - type: textarea
+    id: code-snippet
+    attributes:
+      label: Code Snippet
+      description: Add any relevant code snippets here (if applicable).
+      render: cpp
+      placeholder: // Your code here
+
+  - type: input
+    id: harmonyy-version
+    attributes:
+      label: Harmonyy Version (Commit ID)
+      placeholder: e.g., v1.2.3 or 7a3b5c1
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: e.g., Ubuntu 22.04, Windows 11
+
+  - type: input
+    id: dependencies
+    attributes:
+      label: Dependencies
+      placeholder: Versions of Eigen, Symengine, and Casadi
+
+  - type: textarea
+    id: solution-workaround
+    attributes:
+      label: Suggested Solution or Workaround
+      description: If you have any ideas for how to fix this issue or have found a workaround, please share them here.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the documentation and existing issues.
+          required: true
+        - label: I have provided all required details and steps to reproduce (if applicable).
+          required: true
+        - label: I have added screenshots/code snippets where appropriate.
+          required: false
+        - label: I am willing to submit a PR for this issue (if applicable).
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for contributing! We’ll review your issue as soon as possible.
