@@ -1,18 +1,21 @@
-name: Bug Report or Feature Request
-description: Thank you for taking the time to contribute to our project!
-title: "[Type]: <Short description of the issue>"
+name: Bug Report, Feature Request, Question/Help, Other
+description: Report an bug, request new functionality or ask a question.
+title: "[Type: Bug/Feature/Question]: <Short description>"
 labels: ["triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Before submitting your issue, please make sure to check the [documentation](#) and search existing issues to avoid duplicates.
+        Before submitting your issue, please make sure to check:
+        - Previous issues (open and closed)
+        - [User manual](../../docs/manual/README.md)
+        - [Project documentation](../../docs)
 
   - type: dropdown
     id: issue-type
     attributes:
       label: Issue Type
-      description: Please select the type of issue.
+      description: Please select the type of issue
       options:
         - Bug Report
         - Feature Request
