@@ -6,10 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before submitting your issue, please make sure to check:
-        - Previous issues (open and closed)
-        - [User manual](../../docs/manual/README.md)
-        - [Project documentation](../../docs)
+        Before submitting your issue, please make sure to check previous issues and the project's [documentation](../../docs
 
   - type: dropdown
     id: issue-type
@@ -20,7 +17,7 @@ body:
         - Bug Report
         - Feature Request
         - Question/Help
-        - Other (please specify in description)
+        - Other
     validations:
       required: true
 
@@ -28,13 +25,12 @@ body:
     id: description
     attributes:
       label: Description
-      description: Describe the issue or feature request in detail.
-      placeholder: |
-        - What are you trying to do?
-        - What did you expect to happen?
-        - What actually happened?
-        
-        Add any additional context, screenshots, or code snippets here.
+      description: |
+        Describe your issue, question, or feature request in as much detail as possible.
+        - For bugs, explain what you were trying to do, what you expected to happen, and what actually happened. Include any relevant error messages, logs, or screenshots.
+        - For feature requests, describe the problem you are trying to solve and how you would like the feature to work.
+        - For questions or help requests, explain what you are trying to accomplish, what you have tried so far, and where you are stuck.
+        Include any relevant error messages, logs, screenshots, or other context that may help.
     validations:
       required: true
 
