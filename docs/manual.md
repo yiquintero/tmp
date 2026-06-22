@@ -26,7 +26,7 @@ Harmony can be compiled on Windows, Linux (tested in Ubuntu 22.04.5), and macOS 
 
 <summary>Verify miniconda installation on Windows</summary>
 
-Open Visual Studio. Close the Welcome dialogue or select the option *Continue without code*. Open the VS built-in terminal by selecting View->Terminal on the top menu. 
+Open Visual Studio (VS). Close the Welcome dialogue or select the option *Continue without code*. Open the VS built-in terminal by selecting View->Terminal on the top menu. 
 
 The terminal should display `(base)` to the left of the prompt symbol as shown in the picture below. This symbol indicates that VS can find and use miniconda. The word "base" means that no conda environments are activated; if an environment were activated, its name would appear instead of "base".
 
@@ -47,7 +47,7 @@ Set-ExecutionPolicy RemoteSigned
 
 **Linux and MacOS:** open the terminal.
 
-**Windows:** Open Visual Studio. Close the Welcome dialogue or select the option *Continue without code*. Open the Visual Studio built-in terminal by selecting View->Terminal on the top menu.
+**Windows:** Open Visual Studio (VS). Close the Welcome dialogue or select the option *Continue without code*. Open the Visual Studio built-in terminal by selecting View->Terminal on the top menu.
 
 **1. Clone the Harmony repository** by running the following commands from the terminal: 
 ```bash
@@ -85,37 +85,40 @@ If the environment was correctly activated, `(harmony)` should be displayed to t
 
 **4. Use CMake** to create the Harmony Visual Studio Solution on Windows or the Harmony makefile on Linux and MacOS. The file [CMakeLists.txt](../CMakeLists.txt) contains the instructions to create the VS Solution and makefile.
 ```bash
-# Create a directory called build
+# 4.1 Create a directory called build
 mkdir build
 
-# Open the build directory
+# 4.2 Open the build directory
 cd build
 
-# Generate the VS Solution or makefile
-# CMake will look for CMakeLists.txt in the parent directory of the build folder (indicated by ..)
-# Specify the path yo your Gurobi installation, for example:
-#   - Windows: -DGUROBI_PATH="C:\gurobi1202\win64
-#   - Linux: -DGUROBI_PATH="/opt/gurobi1301/linux64"
-#   - MacOS: -DGUROBI_PATH="/Library/gurobi1200/macos_universal2"
+# 4.3 Generate the VS Solution or makefile
+#     CMake will look for CMakeLists.txt in the parent directory of the build folder (indicated by ..)
+#     Specify the path yo your Gurobi installation, for example:
+#     - Windows: -DGUROBI_PATH="C:\gurobi1202\win64
+#     - Linux: -DGUROBI_PATH="/opt/gurobi1301/linux64"
+#     - MacOS: -DGUROBI_PATH="/Library/gurobi1200/macos_universal2"
+
 cmake .. -DGUROBI_PATH="gurobi_installation_dir_config"
 ```
 
-The VS Solution or makefile will be inside the `build` directory. The VS Solution or makefile needs to be regenerated every time you make changes to *CMakeLists.txt*. These changes can include, for example: adding a new *.h* or *.cpp* file to the project, adding a dependency on a third-party library, etc. To regenerate the solution or makefile, delete the `build` folder and re-run the commands listed in this step.
+The VS Solution or makefile will be inside the `build` directory. The VS Solution or makefile needs to be regenerated every time you make changes to `CMakeLists.txt`. These changes can include, for example: adding a new `.h` or `.cpp` file to the project or adding a dependency on a third-party library. To regenerate the solution or makefile, re-run the `cmake .. -DGUROBI_PATH="gurobi_installation_dir_config"` command from the `build` folder.
 
 **5.** (Optional, Windows) Open the VS Solution created in the previous step. Do so by selecting File->Open->Project/Solution on the top menu. Choose the file `<path-to-harmony/build/Harmony.sln>`. Carry out your development as usual, making changes to the project's source files and saving them.
 
 Note: Harmony will add the ALL_BUILD and ZERO_CHECK projects to the VS solution. You can ignore them.
 
-**6. Compile Harmony.** The following command (which needs to be run from the `build` folder containing the VS Solution or makefile) will build Harmony in Release mode. Use `--config Debug` to build in Debug mode.
+**6. Compile Harmony.** The following command (which needs to be run from the `build` folder containing the VS Solution or makefile) will build Harmony in Release mode.  
+
+Use `--config Debug` to build in Debug mode (currently not supported). Replace `<num-cores>` with the number of CPU cores you wish to use for parallel compilation, e.g. `-j 4`. For Windows, Harmony is already configured to automatically detect and use the maximum number of available cores for parallel compilation.
 ```bash
-cmake --build . --config Release
+cmake --build . --config Release -j <num-cores>
 ```
 
 Windows users: You may also use the VS Build button or select Build->Solution from the menu at the top. The output files *Harmony.exe* and *HarmonyUI.exe* are created in the `build/Release` directory (or `build/Debug` in Debug mode).
 
 **7. Execute Harmony.**
 
-Build produces two executables:
+Building Harmony produces two executables:
 
 | Executable | Build target | Use |
 |------------|--------------|-----|
