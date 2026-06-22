@@ -49,7 +49,7 @@ Set-ExecutionPolicy RemoteSigned
 
 **Windows:** Open Visual Studio. Close the Welcome dialogue or select the option *Continue without code*. Open the Visual Studio built-in terminal by selecting View->Terminal on the top menu.
 
-**1. Clone the Harmony repository** if you have not alredy done so:: 
+**1. Clone the Harmony repository** if you have not already done so: 
 ```bash
 # Download repository
 git clone https://github.com/CRESYM/Harmony.git
@@ -77,7 +77,8 @@ conda activate harmony
 
 If the environment was correctly activated, `(harmony)` should be displayed to the left of the terminal's prompt. Use `conda deactivate` to deactivate the harmony environment - this will replace `(harmony)` with `(base)` on the terminal's prompt. 
 
-![Screenshot 2025-05-05 at 21 14 39](https://github.com/user-attachments/assets/2c430c03-0438-4afa-95f9-75d697d7642a)
+![Screenshot 2025-05-05 at 21 14 39](https://github.com/user-attachments/assets/2c430c03-0438-4afa-95f9-75d697d7642a)  
+*Example: Windows terminal.*
 
 > [!TIP]
 > Always make sure `(harmony)` is displayed on the terminal prompt before attempting to compile or run harmony. This symbol indicates the environment is activated.
