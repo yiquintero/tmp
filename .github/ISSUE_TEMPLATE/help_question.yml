@@ -1,46 +1,24 @@
-name: Feature Request, Question/Help, Other
-description: "Request new functionality or ask a question."
-title: "<Short description>"
-labels: ["triage"]
+name: Question or help
+description: "Ask a question or request help"
+title: "Question/Help: <add a short description>"
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Before submitting the issue, please make sure to check previous issues and the project's [documentation](../../docs)
-
-  - type: dropdown
-    id: issue-type
-    attributes:
-      label: Issue Type
-      description: Please select the type of issue
-      options:
-        - Feature Request
-        - Question/Help
-        - Other
-    validations:
-      required: true
+        Before submitting your issue, please make sure to check previous issues and the project's [documentation](../../docs)
 
   - type: textarea
     id: description
     attributes:
       label: Description
       description: |
-        Describe the question or feature request in as much detail as possible.
-        - For questions or help requests, explain what you are trying to accomplish, what you have tried so far, and where you are stuck.
-        - For feature requests, describe the problem you are trying to solve and how you would like the feature to work.
-        
+        Describe the question in as much detail as possible. Explain what you are trying to accomplish, what you have tried so far, and where you are stuck.  
+        If the error is related to a simulation, include the simulation setup code or input file.    
         Include any relevant error messages, logs, screenshots, or other context that may help.
     validations:
       required: true
       
-  - type: textarea
-    id: code-snippet
-    attributes:
-      label: Code Snippet
-      description: Add any relevant code snippets here (if applicable).
-      render: cpp
-      placeholder: // Your code here
-
   - type: input
     id: harmony-version
     attributes:
@@ -48,13 +26,17 @@ body:
       description: |
         Let us know the git commit ID. You can find it by running `git rev-parse HEAD` from the Harmony directory in the terminal.
       placeholder: e.g. 7a3b5c1...
+    validations:
+      required: true
 
   - type: input
     id: os
     attributes:
       label: Operating System
       placeholder: e.g., Ubuntu 22.04, Windows 11, MacOS 15.0
-  
+    validations:
+      required: true
+
   - type: checkboxes
     id: checklist
     attributes:
@@ -64,7 +46,7 @@ body:
           required: true
         - label: I have checked the [user manual]() and [project documentation]().
           required: true
-        - label: I have provided a detailed description of the feature or question.
+        - label: I have provided a detailed description of the question.
           required: true
         - label: I have added screenshots and code snippets where appropriate.
           required: true
