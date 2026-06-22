@@ -1,6 +1,6 @@
 name: Bug report
-description: Something is not working as expected: crashes, incorrect results, etc.
-title: "Bug: <Add a short description>"
+description: Something is not working as expected: incorrect results, crashes, etc.
+title: "Bug: <add a short description>"
 labels: ["triage"]
 body:
   - type: markdown
@@ -26,59 +26,51 @@ body:
     attributes:
       label: Steps to Reproduce
       description: |
-        Provide the smallest set of steps needed to reproduce the issue.
-        Leave this field blank for feature requests, questions, or other issue types.
+        Provide the smallest set of steps needed to reproduce the issue. 
+        If the error is related to a simulation, include your simulation setup code or input file.
       placeholder: |
         1. ...
         2. ...
         3. ...
+      validations:
+        required: true
       
-  - type: textarea
-    id: code-snippet
-    attributes:
-      label: Code Snippet
-      description: Add any relevant code snippets here (if applicable).
-      render: cpp
-      placeholder: // Your code here
-
   - type: input
-    id: harmonyy-version
+    id: harmony-version
     attributes:
-      label: Harmonyy Version (Commit ID)
-      placeholder: e.g., v1.2.3 or 7a3b5c1
-    validations:
-      required: true
+      label: Harmony Version (git commit ID)
+      description: |
+        Let us know the git commit ID. You can find it by running `git rev-parse HEAD` in the terminal.
+      placeholder: e.g. 7a3b5c1...
+      validations:
+        required: true
 
   - type: input
     id: os
     attributes:
       label: Operating System
-      placeholder: e.g., Ubuntu 22.04, Windows 11
-
-  - type: input
-    id: dependencies
-    attributes:
-      label: Dependencies
-      placeholder: Versions of Eigen, Symengine, and Casadi
+      placeholder: e.g., Ubuntu 22.04, Windows 11, MacOS Tahoe 26.5
+      validations:
+        required: true
 
   - type: textarea
     id: solution-workaround
     attributes:
       label: Suggested Solution or Workaround
-      description: If you have any ideas for how to fix this issue or have found a workaround, please share them here.
+      description: If you have any ideas for how to fix this bug or have found a workaround, please share them here.
 
   - type: checkboxes
     id: checklist
     attributes:
       label: Checklist
       options:
-        - label: I have checked the documentation and existing issues.
+        - label: I have checked existing issues (opened and closed).
           required: true
-        - label: I have provided all required details and steps to reproduce (if applicable).
+        - label: I have checked the [user manual]() and [project documentation]().
           required: true
-        - label: I have added screenshots/code snippets where appropriate.
-          required: false
-        - label: I am willing to submit a PR for this issue (if applicable).
+        - label: I have provided a detailed description of the error I encountered.
+          required: true
+        - label: I have added screenshots and code snippets where appropriate.
           required: false
 
   - type: markdown
