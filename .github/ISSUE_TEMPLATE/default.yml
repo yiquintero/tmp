@@ -1,0 +1,100 @@
+name: Bug Report or Feature Request
+description: Thank you for taking the time to contribute to our project!
+title: "[Type]: <Short description of the issue>"
+labels: ["triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting your issue, please make sure to check the [documentation](#) and search existing issues to avoid duplicates.
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: Please select the type of issue.
+      options:
+        - Bug Report
+        - Feature Request
+        - Question/Help
+        - Other (please specify in description)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the issue or feature request in detail.
+      placeholder: |
+        - What are you trying to do?
+        - What did you expect to happen?
+        - What actually happened?
+        
+        Add any additional context, screenshots, or code snippets here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide clear steps to reproduce the bug. Leave blank if not applicable.
+      placeholder: |
+        1. [First step]
+        2. [Second step]
+        3. [Third step]
+
+  - type: textarea
+    id: code-snippet
+    attributes:
+      label: Code Snippet
+      description: Add any relevant code snippets here (if applicable).
+      render: cpp
+      placeholder: // Your code here
+
+  - type: input
+    id: harmonyy-version
+    attributes:
+      label: Harmonyy Version (Commit ID)
+      placeholder: e.g., v1.2.3 or 7a3b5c1
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: e.g., Ubuntu 22.04, Windows 11
+
+  - type: input
+    id: dependencies
+    attributes:
+      label: Dependencies
+      placeholder: Versions of Eigen, Symengine, and Casadi
+
+  - type: textarea
+    id: solution-workaround
+    attributes:
+      label: Suggested Solution or Workaround
+      description: If you have any ideas for how to fix this issue or have found a workaround, please share them here.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the documentation and existing issues.
+          required: true
+        - label: I have provided all required details and steps to reproduce (if applicable).
+          required: true
+        - label: I have added screenshots/code snippets where appropriate.
+          required: false
+        - label: I am willing to submit a PR for this issue (if applicable).
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for contributing! We’ll review your issue as soon as possible.
