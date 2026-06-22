@@ -1,5 +1,5 @@
 name: Bug report
-description: Something is not working as expected: incorrect results, crashes, etc.
+description: "Something is not working as expected: incorrect results, crashes, etc."
 title: "Bug: <add a short description>"
 labels: ["triage"]
 body:
