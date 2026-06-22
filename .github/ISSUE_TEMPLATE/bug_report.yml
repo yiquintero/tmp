@@ -1,7 +1,7 @@
 name: Bug report
-description: "Something is not working as expected: incorrect results, crashes, etc."
+description: "Report incorrect results, crashes, unexpected behavior, or other bugs"
 title: "Bug: <add a short description>"
-labels: ["triage"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
@@ -28,7 +28,7 @@ body:
       label: Steps to Reproduce
       description: |
         Provide the smallest set of steps needed to reproduce the issue. 
-        If the error is related to a simulation, include your simulation setup code or input file.
+        If the error is related to a simulation, include the simulation setup code or input file.
       placeholder: |
         1. ...
         2. ...
@@ -41,7 +41,7 @@ body:
     attributes:
       label: Harmony Version (git commit ID)
       description: |
-        Let us know the git commit ID. You can find it by running `git rev-parse HEAD` in the terminal.
+        Let us know the git commit ID. You can find it by running `git rev-parse HEAD` from the Harmony directory in the terminal.
       placeholder: e.g. 7a3b5c1...
     validations:
       required: true
@@ -70,6 +70,8 @@ body:
         - label: I have checked the [user manual]() and [project documentation]().
           required: true
         - label: I have provided a detailed description of the error I encountered.
+          required: true
+        - label: I have provided enough information for others to reproduce the issue.
           required: true
         - label: I have added screenshots and code snippets where appropriate.
           required: false
