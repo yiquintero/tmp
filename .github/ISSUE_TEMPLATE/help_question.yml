@@ -1,7 +1,7 @@
 name: Question or help
 description: "Ask a question or request help"
 title: "Question/Help: <add a short description>"
-labels: ["bug"]
+labels: ["question", "help wanted"]
 body:
   - type: markdown
     attributes:
