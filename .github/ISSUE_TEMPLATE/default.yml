@@ -1,6 +1,6 @@
 name: Bug Report, Feature Request, Question/Help, Other
 description: Report an bug, request new functionality or ask a question.
-title: "[Type: Bug/Feature/Question]: <Short description>"
+title: "<Bug/Feature/Question>: <Short description>"
 labels: ["triage"]
 body:
   - type: markdown
@@ -29,7 +29,7 @@ body:
         Describe your issue, question, or feature request in as much detail as possible.
         - For bugs, explain what you were trying to do, what you expected to happen, and what actually happened. Include any relevant error messages, logs, or screenshots.
         - For feature requests, describe the problem you are trying to solve and how you would like the feature to work.
-        - For questions or help requests, explain what you are trying to accomplish, what you have tried so far, and where you are stuck.
+        - For questions or help requests, explain what you are trying to accomplish, what you have tried so far, and where you are stuck.  
         Include any relevant error messages, logs, screenshots, or other context that may help.
     validations:
       required: true
@@ -37,13 +37,15 @@ body:
   - type: textarea
     id: steps-to-reproduce
     attributes:
-      label: Steps to Reproduce
-      description: Provide clear steps to reproduce the bug. Leave blank if not applicable.
+      label: Steps to Reproduce (Bug Reports Only)
+      description: |
+        If reporting a bug, provide the smallest set of steps needed to reproduce the issue.
+        Leave this field blank for feature requests, questions, or other issue types.
       placeholder: |
-        1. [First step]
-        2. [Second step]
-        3. [Third step]
-
+        1. ...
+        2. ...
+        3. ...
+      
   - type: textarea
     id: code-snippet
     attributes:
