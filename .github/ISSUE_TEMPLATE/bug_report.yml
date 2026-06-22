@@ -14,9 +14,10 @@ body:
       label: Description
       description: |
         Describe the bug in as much detail as possible. Let us know:
-          - What you were trying to do
-          - What you expected to happen
-          - What actually happened  
+        - What you were trying to do
+        - What you expected to happen
+        - What actually happened  
+            
         Include any relevant error messages, logs, screenshots, or other context that may help.
     validations:
       required: true
