@@ -1,20 +1,17 @@
 # Harmony Contributing Guidelines
 
-Thank you for considering making a contribution to Harmony! This document explains how to make changes to the project, whether you are adding a new feature, fixing a bug, improving the documentation or doing something else. There are 2 procedures to be followed:
-* **Internal contributions** – for members of the Harmony team, or members of teams working on Harmony-related projects such as Mitigate Harm.
-* **External contributions** – for contributors who are not part of the Harmony team.
-
-This document contains the following sections:
-1. Procedure for Internal Contributions
-2. Procedure for External Contributions
-3. Git Flow workflow description
-4. Common issues and how to fix them
+Thank you for considering making a contribution to Harmony! This document explains how to make changes to the project, whether you are adding a new feature, fixing a bug, improving the documentation or doing something else. 
 
 Changes to Harmony should follow the **Git Flow** workflow which keeps the stable version of Harmony separate from work that is still being developed. The workflow involves three types of branches:
 * `main` - contains stable versions of Harmony. This branch should only contain changes that are ready for a release. **Do not make changes directly to main.**
 * `develop` - contains changes that are being developed and will eventually become part of a stable release.
 * `feature/bugfix/change branches` - temporary branches used to work on a specific feature, bug fix, or other change. These branches are created from `develop` and are merged back into `develop` when the work is complete.
 
+This document contains the following sections:
+- [Internal Contributors](#internal-contributors) - procedure to make contributions by members of the Harmony team
+- [External Contributors](#external-contributors) - for contributors who are
+- [Git Flow Description](#git-flow)
+- [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Internal Contributors
 
@@ -94,7 +91,7 @@ If you linked the issue created in Step 2 to the Pull Request, the issue will be
 
 Harmony uses a simplified Git Flow workflow. You do not need to understand all of Git to follow it. The important rule is:
 
-> Do your work in a feature or bugfix branch, and merge that branch into `develop` when the work is ready. Never make changes directly to `main`.
+> **Do your work in a feature or bugfix branch, and merge that branch into `develop` when the work is ready. Never make changes directly to `main`.**
 
 ### Creating a new branch
 
@@ -118,7 +115,7 @@ git checkout -b feature/166-add-foo-solver
 You can now make your changes without modifying the `develop` branch.
 
 > [!TIP]
-> You can check which branch is currently active with the `git status` command. You can switch between branches with the `git checkout <branch-name>` command.
+> You can check which branch is currently active with `git status`. You can switch between branches with `git checkout <branch-name>`.
 
 ### Working on your branch
 
@@ -141,28 +138,9 @@ You can continue to make commits and push them to the same branch while your wor
 > Use `git status` to list all the files that have changed since the last commit. Use `git diff <file-name>` to display the changes in a specific file.
 
 ### Keeping your branch up to date
-Other contributors may make changes to `develop` while you are working. It is a good idea to occasionally update your branch with the latest changes from develop.
+Other contributors may make changes to `develop` while you are working. It is a good idea to occasionally update your branch with the latest changes from `develop`.
 
-See the troubleshooting section below for instructions on how to update your branch.
-
-### Completing your work
-
-When your changes are ready:
-1. Make sure your changes are committed and pushed to GitHub.
-2. Compile, run the tests and examples
-3. Open a pull-request to merge your feature/bugfix branch into `develop`
-4. Ask a Harmony team member to review the pull-request.
-5. Address any review comments.
-6. Once the pull request is approved, it can be merged into `develop`.
-
-The `main` branch is reserved for stable releases and should not be used for day-to-day development.
-
-
-## Common Issues and How to Fix Them
-
-### Changes were pushed to `develop` and I want to add them to my branch.
-
-If changes have been added to `develop` while you are working on your branch, you may need to update your branch to incorporate the work. First, make sure your own changes have been commited. Then, update your local copy of develop with the latest changes from GitHub and merge `develop` into your own branch:
+First, make sure your own changes have been committed. Then, update your local copy of develop with the latest changes from GitHub and merge `develop` into your own branch:
 
 ```bash
 # Switch to the develop branch
@@ -179,14 +157,26 @@ git checkout feature/166-add-foo-solver
 git merge develop
 ```
 
-If the merge is successful, you can continue working on your branch. You may want to run the tests to make sure everything still works. If Git reports merge conflicts, see "How do I solve merge conflicts between branch A and B?" below.
+If the merge is successful, you can continue working on your branch. You may want to run the tests to make sure everything still works. If Git reports merge conflicts, see "How do I solve merge conflicts between branch A and B?" in the [FAQ section](#frequently-asked-questions) below.
 
-Once you have resolved any conflicts and confirmed that everything works, push the updated branch to GitHub:
-```bash
-git push
-```
+Once you have resolved any conflicts and confirmed that everything works, push the updated branch to GitHub using `git push`.
 
-### I cannot create a new branch because I have local uncommtted changes.
+### Completing your work
+
+When your changes are ready:
+1. Make sure your changes are committed and pushed to GitHub.
+2. Compile, run the tests and examples
+3. Open a pull-request to merge your feature/bugfix branch into `develop`
+4. Ask a Harmony team member to review the pull-request.
+5. Address any review comments.
+6. Once the pull request is approved, it can be merged into `develop`.
+
+The `main` branch is reserved for stable releases and should not be used for day-to-day development.
+
+
+## Frequently Asked Questions
+
+### I cannot create a new branch because I have local uncommitted changes. What can I do?
 Git may prevent you from switching branches or creating a new branch when you have changes that have not been saved in a commit.
 
 First, check what has changed:
@@ -235,9 +225,6 @@ There are many free resources online to learn about Git. We find the following o
 
 Other resources:
 * [TU Delft Library](https://www.tudelft.nl/en/library/data-management/training-and-events/training-for-researchers) offers a selection of courses aimed at TU Delft researchers.
-
 * [4TU](https://community.data.4tu.nl/introduction-to-version-control-with-git/) offers various introductory-level courses including _Introduction to Version Control with Git_.
-
 * [NL eScience Centre](https://www.esciencecenter.nl/digital-skills/) offers a selection of introductory and advanced level courses on different topics.
-
-* [TU Delft Digital Competence Centre](https://dcc.tudelft.nl) offers a _Code & Data Office Hours_ service to get help on a specific topic; also hosts the _DCC Guides_ which provide practical information on software management.
+* [TU Delft Digital Competence Centre](https://dcc.tudelft.nl) offers a _Code & Data Office Hours_ service to get help on a specific topic; also hosts the _DCC Guides_ which provide practical information on research software management.
