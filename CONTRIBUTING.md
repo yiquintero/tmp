@@ -2,16 +2,11 @@
 
 Thank you for considering making a contribution to Harmony! This document explains how to make changes to the project, whether you are adding a new feature, fixing a bug, improving the documentation or doing something else. 
 
-Changes to Harmony should follow the **Git Flow** workflow which keeps the stable version of Harmony separate from work that is still being developed. The workflow involves three types of branches:
-* `main` - contains stable versions of Harmony. This branch should only contain changes that are ready for a release. **Do not make changes directly to main.**
-* `develop` - contains changes that are being developed and will eventually become part of a stable release.
-* `feature/bugfix/change branches` - temporary branches used to work on a specific feature, bug fix, or other change. These branches are created from `develop` and are merged back into `develop` when the work is complete.
-
 This document contains the following sections:
-- [Internal Contributors](#internal-contributors) - procedure to make contributions by members of the Harmony team
-- [External Contributors](#external-contributors) - for contributors who are
-- [Git Flow Description](#git-flow)
-- [Frequently Asked Questions](#frequently-asked-questions)
+- [Internal Contributors](#internal-contributors) - procedure for contributors who have access to the Harmony repository.
+- [External Contributors](#external-contributors) - procedure for contributing through a fork of the Harmony repository.
+- [Git Flow Description](#git-flow) – overview of the branching workflow used by Harmony.
+- [Frequently Asked Questions](#frequently-asked-questions) - solutions to common Git problems and links to further resources.
 
 ## Internal Contributors
 
@@ -35,7 +30,7 @@ Follow the instructions in the README to set up a local working version of Harmo
 
 Changes to Harmony should be made in a separate branch rather than directly in `develop`.
 
-First, make sure you are starting from the latest version of `develop`. See Git Flow section below for instructions.
+First, make sure you are starting from the latest version of `develop`. See [Git Flow](#git-flow) section below for instructions.
 
 Give your branch a name that includes the issue number and a short description of the change. For example, if issue `166` is about adding a new solver called `foo`, you could name the branch `feature/166-add-foo-solver`. If the issue is about fixing a problem with the solver, you can name the branch `bugfix/166-fix-foo-solver`. The exact wording is not important. The goal is to make it easy for other contributors to understand what the branch is for.
 
@@ -84,14 +79,48 @@ Once the reviewers are satisfied, the branch can be merged into `develop`. After
 If you linked the issue created in Step 2 to the Pull Request, the issue will be closed when the pull request is closed and your branch has been merged.
 
 
-
 ## External Contributors
+
+The procedure for external contributors is very similar to the procedure for [internal contributors](#internal-contributors). 
+
+The main difference is that external contributors do not have access to make changes directly to the Harmony repository. Instead, you will create your own copy of the Harmony repository, called a **fork**, and make your changes there. When your changes are ready, you can submit them to Harmony through a pull request.
+
+Follow the procedure for internal contributors, with the following differences:
+
+
+### 1. Fork the Harmony repository
+Instead of requesting access to the Harmony repository, create a fork of it on GitHub.
+1. Go to the Harmony repository.
+2. Click the Fork button (top-right).
+3. Select your GitHub account as the owner of the fork.
+4. If GitHub shows the option **Copy the DEFAULT branch only**, make sure it is **NOT selected**. This ensures that the `develop` branch is also copied to your fork.
+5. Click Create fork.
+
+You now have your own copy of Harmony. Clone this repository to your computer and follow the setup instructions in the README.
+
+### 2. Create your branch, work on your fork and submit your changes
+
+Follow Step 2 and Step 3 of the Internal Contributors procedure as usual. When you are ready to create your branch, first make sure that your local `develop` branch contains the latest changes from the Harmony repository. See next step for instructions on how to do this.
+
+Work on your branch following the remaining steps in the Internal Contributions procedure. When your changes are ready, open a pull request **from your feature/bugfix branch in your fork to the `develop` branch in the Harmony repository**.
+
+### 3. Keep your branch up to date
+
+If changes are made to Harmony's `develop` branch while you are working, update your fork:
+1. Open your fork repository on GitHub.
+2. Select the develop branch.
+3. Click Sync Fork and select Update Branch.
+
+This will add all of the new commits in Harmony's `develop` branch to the `develop` branch in your fork. Follow the instructions in the [Keeping your branch up to date](#keeping-your-branch-up-to-date) section below to learn how to add these commits to your feature or bugfix branch.
+
+Read more in [GitHub's guide for syncing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork).
 
 ## Git Flow
 
-Harmony uses a simplified Git Flow workflow. You do not need to understand all of Git to follow it. The important rule is:
-
-> **Do your work in a feature or bugfix branch, and merge that branch into `develop` when the work is ready. Never make changes directly to `main`.**
+Changes to Harmony should follow the **Git Flow** workflow which keeps the stable version of Harmony separate from work that is still being developed. The workflow involves three types of branches:
+* `main` - contains stable versions of Harmony. This branch should only contain changes that are ready for a release. **Do not make changes directly to main.**
+* `develop` - contains changes that are being developed and will eventually become part of a stable release.
+* `feature/bugfix/change branches` - temporary branches used to work on a specific feature, bug fix, or other change. These branches are created from `develop` and are merged back into `develop` when the work is complete.
 
 ### Creating a new branch
 
