@@ -138,11 +138,6 @@ Changes to Harmony should follow the **Git Flow** workflow which keeps the stabl
 * `develop` - contains changes that are being developed and will eventually become part of a stable release.
 * `feature/bugfix/change branches` - temporary branches used to work on a specific feature, bug fix, or other change. These branches are created from `develop` and are merged back into `develop` when the work is complete.
 
-<p align="center">
-  <img src="docs/gitflow.png" alt="Git Flow workflow"><br>
-  <em>Git Flow workflow. Source: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Atlassian</a></em>
-</p>
-
 **Creating a new branch**
 
 When you start working on an issue, create a new branch from the latest commit in the `develop` branch. You can do so by running the following commands from the terminal:
