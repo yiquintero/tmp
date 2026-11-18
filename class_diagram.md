@@ -152,4 +152,3 @@ classDiagram
     class ControlBlock,Controller,Filter,Integrator,ProportionalController,ProportionalIntegralController control
     class StateSpaceModel,DQsym,PowerFlow,StabilityEstimate,PnPCertificateLibrary,StateSpaceTree solver
 ```
-
