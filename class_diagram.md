@@ -1,5 +1,5 @@
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Inter, Segoe UI, sans-serif", "lineColor": "#64748B", "primaryTextColor": "#0F172A"}}}%%
+%%{init: {"theme": "redux", "themeVariables": {"fontFamily": "Inter, Segoe UI, sans-serif", "lineColor": "#64748B", "primaryTextColor": "#0F172A"}}}%%
 classDiagram
     direction TB
 
