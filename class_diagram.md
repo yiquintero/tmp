@@ -204,18 +204,18 @@ classDiagram
     class Element {}
   }
 
-  namespace Elements {
-    class Transformer_base {}
-    class Transformer_classic {}
-    class Transformer_Delta_Delta_real {}
-    class Transformer_Delta_Delta {}
-    class Transformer_Delta_Y_real {}
-    class Transformer_Delta_Y {}
-    class Transformer_real {}
-    class Transformer_Y_Delta_real {}
-    class Transformer_Y_Delta {}
-    class Transformer_Y_Y_real {}
-    class Transformer_Y_Y {}
+namespace Harmony.Elements {
+    class Transformer_base
+    class Transformer_classic
+    class Transformer_real
+    class Transformer_Delta_Delta["Transformer_Delta_Delta"]
+    class Transformer_Delta_Delta_real["Transformer_Delta_Delta<br/>_real"]
+    class Transformer_Delta_Y["Transformer_Delta_Y"]
+    class Transformer_Delta_Y_real["Transformer_Delta_Y<br/>_real"]
+    class Transformer_Y_Delta["Transformer_Y_Delta"]
+    class Transformer_Y_Delta_real["Transformer_Y_Delta<br/>_real"]
+    class Transformer_Y_Y["Transformer_Y_Y"]
+    class Transformer_Y_Y_real["Transformer_Y_Y_real"]
   }
   Element --> Transformer_base
   Transformer_base --> Transformer_classic
