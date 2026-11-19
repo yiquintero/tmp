@@ -11,15 +11,16 @@ config:
     hideEmptyMembersBox: true
 ---
 classDiagram
+  direction LR
 
-  namespace Converter {
+  namespace Elements.Converter {
     class Converter {}
     class MMC {}
   }
   %%Element --> Converter
   Converter --> MMC 
 
-  namespace Impedance {
+  namespace Elements.Impedance {
     class Impedance_base {}
     class Admittance {}
     class Impedance {}
@@ -34,7 +35,7 @@ classDiagram
   Impedance_base --> Admittance
   Impedance_base --> Impedance
 
-  namespace Load {
+  namespace Elements.Load {
     class Load_base {}
     class LoadPQ {}
     class Load {}
@@ -43,7 +44,7 @@ classDiagram
   Load_base --> LoadPQ
   Load_base --> Load
 
-  namespace RES {
+  namespace Elements.RES {
     class PV_plant {}
     class RES_base {}
     class WP_plant {}
@@ -56,7 +57,7 @@ classDiagram
   RES_base --> WT_type_3
   RES_base --> WT_type_4
 
-  namespace Source {
+  namespace Elements.Source {
     class Source_base {}
     class AC_source {}
     class DC_source {}
@@ -67,12 +68,12 @@ classDiagram
   Source_base --> DC_source
   Source_base --> Generator
 
-  namespace Switch {
+  namespace Elements.Switch {
     class Switch {}
   }
   %%Element --> Switch
 
-  namespace Transformer {
+  namespace Elements.Transformer {
     class Transformer_base {}
     class Transformer_classic {}
     class Transformer_Delta_Delta_real {}
@@ -95,9 +96,9 @@ classDiagram
   Transformer_real --> Transformer_Y_Delta_real
   Transformer_classic --> Transformer_Y_Delta
   Transformer_real --> Transformer_Y_Y_real
-  Transformer_class --> Transformer_Y_Y
+  Transformer_classic --> Transformer_Y_Y
 
-  namespace Transmission_Line {
+  namespace Elements.Transmission_Line {
     class Cable {}
     class Overhead_Line {}
     class Transmission_Line {}
