@@ -195,13 +195,12 @@ config:
     hideEmptyMembersBox: true
 ---
 classDiagram
-  direction LR
 
-  namespace Harmony.Elements {
+  namespace Elements {
     class Element {}
   }
 
-  namespace Harmony.Elements.Transformer {
+  namespace Elements.Transformer {
     class Transformer_base {}
     class Transformer_classic {}
     class Transformer_Delta_Delta_real {}
