@@ -181,7 +181,44 @@ classDiagram
   Source_base --> Generator
 ```
 
-## Transformers
+
+<details>
+  <summary>Transmission Line</summary>
+  
+```mermaid
+---
+title: Transmission Line
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+
+  namespace Harmony-Elements {
+    class Element {}
+  }
+
+  namespace Harmony-Elements {
+    class Cable {}
+    class Overhead_Line {}
+    class Transmission_Line {}
+  }
+  Element <|-- Cable
+  Element <|-- Overhead_Line
+  Element <|-- Transmission_Line
+```
+</details>
+
+
+
 
 <details>
   <summary>Transformers</summary>
