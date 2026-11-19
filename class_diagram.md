@@ -182,9 +182,13 @@ classDiagram
 ```
 
 ## Transformers
+
+<details>
+  <summary>Transformers</summary>
+  
 ```mermaid
 ---
-title: Harmony - Transformers
+title: Transformers
 config:
   theme: redux-color
   themeVariables:
@@ -200,11 +204,11 @@ config:
 classDiagram
   direction LR
 
-  namespace Elements {
+  namespace Harmony-Elements {
     class Element {}
   }
 
-namespace Elements {
+namespace Harmony-Elements {
     class Transformer_base
     class Transformer_classic
     class Transformer_real
@@ -218,14 +222,15 @@ namespace Elements {
     class Transformer_Y_Y_real["Transformer_Y_Y_real"]
   }
   Element --> Transformer_base
-  Transformer_base --> Transformer_classic
-  Transformer_base --> Transformer_real
-  Transformer_classic --> Transformer_Delta_Delta
-  Transformer_classic --> Transformer_Delta_Y
-  Transformer_classic --> Transformer_Y_Delta
-  Transformer_classic --> Transformer_Y_Y
-  Transformer_real --> Transformer_Delta_Delta_real
-  Transformer_real --> Transformer_Delta_Y_real
-  Transformer_real --> Transformer_Y_Delta_real
-  Transformer_real --> Transformer_Y_Y_real
+  Transformer_base <|-- Transformer_classic
+  Transformer_base <|-- Transformer_real
+  Transformer_classic <|-- Transformer_Delta_Delta
+  Transformer_classic <|-- Transformer_Delta_Y
+  Transformer_classic <|-- Transformer_Y_Delta
+  Transformer_classic <|-- Transformer_Y_Y
+  Transformer_real <|-- Transformer_Delta_Delta_real
+  Transformer_real <|-- Transformer_Delta_Y_real
+  Transformer_real <|-- Transformer_Y_Delta_real
+  Transformer_real <|-- Transformer_Y_Y_real
 ```
+</details>
