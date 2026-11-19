@@ -17,7 +17,7 @@ classDiagram
     class Converter {}
     class MMC {}
   }
-  %%Element --> Converter
+  Element --> Converter
   Converter --> MMC 
 
   namespace Elements.Impedance {
@@ -28,10 +28,10 @@ classDiagram
     class Inductor {}
     class Resistor {}
   }
-  %%Element --> Impedance_base
-  %%Element --> Capacitor
-  %%Element --> Inductor
-  %%Element --> Resistor
+  Element --> Impedance_base
+  Element --> Capacitor
+  Element --> Inductor
+  Element --> Resistor
   Impedance_base --> Admittance
   Impedance_base --> Impedance
 
@@ -40,7 +40,7 @@ classDiagram
     class LoadPQ {}
     class Load {}
   }
-  %%Element --> Load_base
+  Element --> Load_base
   Load_base --> LoadPQ
   Load_base --> Load
 
@@ -51,7 +51,7 @@ classDiagram
     class WT_type_3 {}
     class WT_type_4 {}
   }
-  %%Element --> RES_base
+  Element --> RES_base
   RES_base --> PV_plant
   RES_base --> WP_plant
   RES_base --> WT_type_3
@@ -63,7 +63,7 @@ classDiagram
     class DC_source {}
     class Generator {}
   }
-  %%Element --> Source_base
+  Element --> Source_base
   Source_base --> AC_source
   Source_base --> DC_source
   Source_base --> Generator
@@ -71,7 +71,7 @@ classDiagram
   namespace Elements.Switch {
     class Switch {}
   }
-  %%Element --> Switch
+  Element --> Switch
 
   namespace Elements.Transformer {
     class Transformer_base {}
@@ -86,7 +86,7 @@ classDiagram
     class Transformer_Y_Y_real {}
     class Transformer_Y_Y {}
   }
-  %% Element --> Transformer_base
+  Element --> Transformer_base
   Transformer_base --> Transformer_classic
   Transformer_real --> Transformer_Delta_Delta_real
   Transformer_classic --> Transformer_Delta_Delta 
@@ -103,7 +103,7 @@ classDiagram
     class Overhead_Line {}
     class Transmission_Line {}
   }
-  %% Element --> Cable
-  %% Element --> Overhead_Line
-  %% Element --> Transmission_Line
+  Element --> Cable
+  Element --> Overhead_Line
+  Element --> Transmission_Line
 ```
