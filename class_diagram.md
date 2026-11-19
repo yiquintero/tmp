@@ -188,13 +188,17 @@ title: Harmony - Transformers
 config:
   theme: redux-color
   themeVariables:
-    fontFamily: Inter, Segoe UI, sans-serif
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
+    padding: 16
 ---
 classDiagram
+  direction LR
 
   namespace Elements {
     class Element {}
