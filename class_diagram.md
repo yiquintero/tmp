@@ -9,6 +9,8 @@ config:
     fontFamily: Inter, Segoe UI, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
+  class:
+    hideEmptyMembersBox: true
 ---
 classDiagram
   direction LR
@@ -78,6 +80,8 @@ config:
     fontFamily: Inter, Segoe UI, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
+  class:
+    hideEmptyMembersBox: true
 ---
 classDiagram
   direction LR
@@ -126,6 +130,8 @@ config:
     fontFamily: Inter, Segoe UI, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
+  class:
+    hideEmptyMembersBox: true
 ---
 classDiagram
   direction LR
@@ -185,6 +191,8 @@ config:
     fontFamily: Inter, Segoe UI, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
+  class:
+    hideEmptyMembersBox: true
 ---
 classDiagram
   direction LR
