@@ -1,4 +1,117 @@
 <!-- ***************************************************************** -->
+<!-- SWITCH -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Switch</summary>
+  
+```mermaid
+---
+title: Switch
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+  namespace Harmony-Elements {
+    class Element {}
+  }
+  namespace Harmony-Elements {
+    class Switch {}
+  }
+  Element <|-- Switch
+```
+</details>
+
+
+<!-- ***************************************************************** -->
+<!-- CONVERTER -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Converter</summary>
+  
+```mermaid
+---
+title: Converter
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+  namespace Harmony-Elements {
+    class Element {}
+  }
+  namespace Harmony-Elements {
+    class Converter {}
+    class MMC {}
+  }
+  Element <|-- Converter
+  Converter <|-- MMC 
+```
+</details>
+
+<!-- ***************************************************************** -->
+<!-- IMPEDANCE -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Impedance</summary>
+  
+```mermaid
+---
+title: Impedance
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+  direction LR
+  namespace Harmony-Elements {
+    class Element {}
+  }
+  namespace Harmony-Elements {
+    class Impedance_base {}
+    class Admittance {}
+    class Impedance {}
+    class Capacitor {}
+    class Inductor {}
+    class Resistor {}
+  }
+  Element <|-- Impedance_base
+  Element <|-- Capacitor
+  Element <|-- Inductor
+  Element <|-- Resistor
+  Impedance_base <|-- Admittance
+  Impedance_base <|-- Impedance
+```
+</details>
+
+<!-- ***************************************************************** -->
 <!-- LOAD -->
 <!-- ***************************************************************** -->
 
@@ -21,6 +134,7 @@ config:
     padding: 16
 ---
 classDiagram
+  direction LR
   namespace Harmony-Elements {
     class Element {}
   }
