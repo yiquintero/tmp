@@ -1,3 +1,39 @@
+<!-- ***************************************************************** -->
+<!-- LOAD -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Load</summary>
+  
+```mermaid
+---
+title: Load
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+  namespace Harmony-Elements {
+    class Element {}
+  }
+  namespace Harmony-Elements {
+    class Load_base {}
+    class LoadPQ {}
+    class Load {}
+  }
+  Element <|-- Load_base
+  Load_base <|-- LoadPQ
+  Load_base <|-- Load
+```
+</details>
 
 <!-- ***************************************************************** -->
 <!-- RES -->
