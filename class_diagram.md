@@ -43,6 +43,7 @@ classDiagram
   Element <|-- Transmission_Line
 
 ```
+
 </details>
 
 <!-- ***************************************************************** -->
@@ -86,6 +87,7 @@ classDiagram
   Impedance_base <|-- Admittance
   Impedance_base <|-- Impedance
 ```
+
 </details>
 
 <!-- ***************************************************************** -->
@@ -130,7 +132,7 @@ namespace Harmony-Elements {
     class Transformer_Y_Y["Transformer_Y_Y"]
     class Transformer_Y_Y_real["Transformer_Y_Y_real"]
   }
-  Element --> Transformer_base
+  Element <|-- Transformer_base
   Transformer_base <|-- Transformer_classic
   Transformer_base <|-- Transformer_real
   Transformer_classic <|-- Transformer_Delta_Delta
@@ -142,6 +144,7 @@ namespace Harmony-Elements {
   Transformer_real <|-- Transformer_Y_Delta_real
   Transformer_real <|-- Transformer_Y_Y_real
 ```
+
 </details>
 
 
@@ -180,6 +183,7 @@ classDiagram
   Element <|-- Converter
   Converter <|-- MMC 
 ```
+
 </details>
 
 <!-- ***************************************************************** -->
@@ -218,6 +222,7 @@ classDiagram
   Load_base <|-- LoadPQ
   Load_base <|-- Load
 ```
+
 </details>
 
 <!-- ***************************************************************** -->
@@ -259,6 +264,7 @@ classDiagram
   RES_base <|-- WT_type_3
   RES_base <|-- WT_type_4
 ```
+
 </details>
 
 <!-- ***************************************************************** -->
@@ -298,5 +304,6 @@ classDiagram
   Source_base <|-- DC_source
   Source_base <|-- Generator
 ```
+
 </details>
 
