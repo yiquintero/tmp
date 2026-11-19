@@ -7,7 +7,7 @@
 <!-- ***************************************************************** -->
 
 <details>
-  <summary>Switch, Transmission Line</summary>
+  <summary>Switch and Transmission Line</summary>
   
 ```mermaid
 ---
@@ -68,7 +68,6 @@ config:
     padding: 16
 ---
 classDiagram
-  direction LR
   namespace Harmony-Elements {
     class Element {}
   }
@@ -146,7 +145,7 @@ namespace Harmony-Elements {
 </details>
 
 
-## Other
+## Generators, Loads and Converters
 
 <!-- ***************************************************************** -->
 <!-- CONVERTER -->
@@ -301,58 +300,3 @@ classDiagram
 ```
 </details>
 
-<!-- ***************************************************************** -->
-<!-- TRANSFORMERS -->
-<!-- ***************************************************************** -->
-
-<details>
-  <summary>Transformers</summary>
-  
-```mermaid
----
-title: Transformers
-config:
-  theme: redux-color
-  themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
-    lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
-  class:
-    hideEmptyMembersBox: true
-    padding: 16
----
-classDiagram
-  direction LR
-
-  namespace Harmony-Elements {
-    class Element {}
-  }
-
-namespace Harmony-Elements {
-    class Transformer_base
-    class Transformer_classic
-    class Transformer_real
-    class Transformer_Delta_Delta["Transformer_Delta_Delta"]
-    class Transformer_Delta_Delta_real["Transformer_Delta_Delta<br/>_real"]
-    class Transformer_Delta_Y["Transformer_Delta_Y"]
-    class Transformer_Delta_Y_real["Transformer_Delta_Y<br/>_real"]
-    class Transformer_Y_Delta["Transformer_Y_Delta"]
-    class Transformer_Y_Delta_real["Transformer_Y_Delta<br/>_real"]
-    class Transformer_Y_Y["Transformer_Y_Y"]
-    class Transformer_Y_Y_real["Transformer_Y_Y_real"]
-  }
-  Element --> Transformer_base
-  Transformer_base <|-- Transformer_classic
-  Transformer_base <|-- Transformer_real
-  Transformer_classic <|-- Transformer_Delta_Delta
-  Transformer_classic <|-- Transformer_Delta_Y
-  Transformer_classic <|-- Transformer_Y_Delta
-  Transformer_classic <|-- Transformer_Y_Y
-  Transformer_real <|-- Transformer_Delta_Delta_real
-  Transformer_real <|-- Transformer_Delta_Y_real
-  Transformer_real <|-- Transformer_Y_Delta_real
-  Transformer_real <|-- Transformer_Y_Y_real
-```
-</details>
