@@ -204,7 +204,7 @@ classDiagram
     class Element {}
   }
 
-  namespace Elements.Transformer {
+  namespace Elements {
     class Transformer_base {}
     class Transformer_classic {}
     class Transformer_Delta_Delta_real {}
