@@ -204,7 +204,7 @@ classDiagram
     class Element {}
   }
 
-namespace Harmony.Elements {
+namespace Elements {
     class Transformer_base
     class Transformer_classic
     class Transformer_real
