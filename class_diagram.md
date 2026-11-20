@@ -343,13 +343,12 @@ config:
     padding: 16
 ---
 classDiagram
-  namespace Harmony-Solvers {
-    class PowerFlow {
-      +PowerFlow()
-      +make_OPF(net: Network*, global_params: std::map~std::string, double~&, vscControl: bool, writeTxt: bool, plotResult: bool, print_info: bool, include_dc: bool) void
-      +make_AC_OPF(net: Network*, global_params: std::map~std::string, double~&, writeTxt: bool, plotResult: bool, print_info: bool) void
-      +solve_opf(dc_name: const std::string&, ac_name: const std::string&, dataOPF: std::unordered_map~std::string, Eigen::MatrixXd~*, vscControl: bool, writeTxt: bool, plotResult: bool, print_info: bool) void
-    }
+  
+  class PowerFlow {
+    +PowerFlow()
+    +make_OPF(...) void
+    +make_AC_OPF(...) void
+    +solve_opf(...) void
   }
 ```
 
