@@ -321,6 +321,81 @@ classDiagram
 ## Solvers
 
 <!-- ***************************************************************** -->
+<!-- DQSYM -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>DQsym</summary>
+  
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+  
+  class DQsym {
+        +DQsym()
+        +initialize(...) void
+        +run(...) DQsymResult
+        +reset() void
+        +exportCSV(...) void
+        +plot() void
+        +analyzeAtTime(...) void
+        +setResult(...) void
+        +getResult() DQsymResult&
+        +hasRun() bool
+        +DSSS(...) MatrixXcd
+        +buildMatricesForState(...) void
+    }
+
+    class Config {
+        <<struct>>
+        +double dt
+        +double t_start
+        +double t_end
+        +double f
+        +double omega
+        +int nKeep
+        +VectorXd swOnRes
+        +VectorXd swOffRes
+        +VectorXi swType
+        +std::function breakerFunction
+        +std::vector~Bus*~ outputBuses
+        +MatrixXcd resumeX
+    }
+
+    class DQsymResult {
+        <<struct>>
+        +std::vector~double~ time
+        +MatrixXi brkHistory
+        +std::vector~MatrixXd~ DSSabcHist
+        +std::map~std::string, MatrixXd~ stateHist
+        +std::map~std::string, MatrixXd~ inputHist
+        +std::vector~MatrixXcd~ xHist
+        +Config cfg
+    }
+
+    class DSSState {
+        <<struct>>
+        +MatrixXcd Ads, Bds, Cds, Dds
+        +MatrixXcd A0, B0, C0, D0
+        +MatrixXcd x_old
+        +VectorXi swVec, swVecOld
+        +bool initialized
+    }
+
+    DQsym ..> Config : configures
+    DQsym *-- DQsymResult : stores
+    DQsym *-- DSSState : manages
+    DQsymResult *-- Config : retains
+```
+
+</details>
+
+<!-- ***************************************************************** -->
 <!-- OPF -->
 <!-- ***************************************************************** -->
 
