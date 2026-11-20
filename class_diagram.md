@@ -392,5 +392,64 @@ classDiagram
 
 </details>
 
+<!-- ***************************************************************** -->
+<!-- STATE SPACE MODEL -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>State Space Model</summary>
+  
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+  
+  class StateSpaceModel {
+        +StateSpaceModel()
+        +form_cutset_nodes(...) std::vector$
+        +form_cutsets(...) std::vector$
+        +generateBusToElementsMap(...) std::map$
+        +findLoops(...) std::vector$
+        +formState(...) void
+        +getA() Eigen::MatrixXd&
+        +getB() Eigen::MatrixXd&
+        +getC() Eigen::MatrixXd&
+        +getD() Eigen::MatrixXd&
+        +getBRaw() Eigen::MatrixXd&
+        +getMode() SSMMode
+        +getInputMap() std::vector~InputMapping~&
+        +getStateMap() std::vector~StateMapping~&
+        +getOutputMap() std::vector~OutputMapping~&
+        +getInputGroups() std::vector~InputGroup~&
+        +getInputIndex(...) int
+        +getStateIndex(...) int
+        +buildInputVector(...) MatrixXcd
+        +printMapping() void
+    }
+
+    class Tree {
+        +Tree(...)
+        +addPathElement(...) void
+        +getRoot() Bus*
+        +getElement() Element*
+        +getCurrentNode() Bus*
+        +getSubelements() std::vector~Element*~&
+        +getParent() std::shared_ptr~Tree~
+        +containsNode(...) bool
+        +getPath() std::vector~Element*~
+        +toString() std::string
+    }
+
+    StateSpaceModel +-- Tree
+```
+
+</details>
+
+
+
 
 
