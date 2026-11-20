@@ -443,7 +443,7 @@ classDiagram
         +getPath() std::vector~Element*~
         +toString() std::string
     }
-    StateSpaceModel +-- Tree
+    StateSpaceModel ..> Tree : uses
 ```
 
 </details>
