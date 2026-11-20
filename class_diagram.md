@@ -336,11 +336,8 @@ config:
     fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
     primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
-    padding: 16
 ---
 classDiagram
   
