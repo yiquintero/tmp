@@ -1,11 +1,13 @@
+# Harmony Architecture
+
+
+
 ## Elements
  The diagrams below illustrate the class structure and relationships of all Elements in Harmony. All Elements inherit from the `Element` base class.
 
 For readability and ease of navigation, the diagrams are divided into several smaller, interconnected components rather than presenting all classes in a single diagram.
 
-These diagrams are intended to provide an overview of the class hierarchy and the relationships between classes, rather than document their individual implementations or functionality.
-
-For detailed information about each class, including its properties and methods, please refer to the [API documentation](https://cresym.github.io/Harmony-Doc/api/index.html).
+These diagrams are intended to provide an overview of the class hierarchy and the relationships between classes, rather than document their individual implementations or functionality. For detailed information about each class, including its properties and methods, please refer to the [API documentation](https://cresym.github.io/Harmony-Doc/api/index.html).
 
 
 ### Network and Passive Elements
@@ -157,7 +159,7 @@ namespace Harmony-Elements {
 </details>
 
 
-## Generators, Loads and Converters
+### Generators, Loads and Converters
 
 <!-- ***************************************************************** -->
 <!-- CONVERTER -->
@@ -315,4 +317,42 @@ classDiagram
 ```
 
 </details>
+
+## Solvers
+
+<!-- ***************************************************************** -->
+<!-- SOLVERS -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Operational Power Flow (OPF)</summary>
+  
+```mermaid
+---
+title: Operational Power Flow
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  flowchart:
+    wrappingWidth: 450
+  class:
+    hideEmptyMembersBox: true
+    padding: 16
+---
+classDiagram
+  namespace Harmony-Solvers {
+    class PowerFlow {
+      +PowerFlow()
+      +make_OPF(net: Network*, global_params: std::map~std::string, double~&, vscControl: bool, writeTxt: bool, plotResult: bool, print_info: bool, include_dc: bool) void
+      +make_AC_OPF(net: Network*, global_params: std::map~std::string, double~&, writeTxt: bool, plotResult: bool, print_info: bool) void
+      +solve_opf(dc_name: const std::string&, ac_name: const std::string&, dataOPF: std::unordered_map~std::string, Eigen::MatrixXd~*, vscControl: bool, writeTxt: bool, plotResult: bool, print_info: bool) void
+    }
+```
+
+</details>
+
+
 
