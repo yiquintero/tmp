@@ -279,6 +279,263 @@ classDiagram
 ## Solvers
 
 <!-- ***************************************************************** -->
+<!-- Certificate -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Certificate</summary>
+  
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+    %% ===== Configuration Specs (Certificate_spec.h) =====
+    class CertificateSpec {
+        <<struct>>
+        +double f_min_Hz
+        +double f_max_Hz
+        +int n_points
+        +bool ac_dq_block
+        +double phase_limit_deg
+        +double passivity_eps
+        +double shift_delta
+        +double gain_limit
+        +double sector_alpha
+        +double sector_beta
+        +bool require_passivity
+        +bool require_phase
+        +bool require_shifted
+        +bool require_nr_phase
+        +bool require_nr_zero_outside
+        +bool require_small_gain
+        +bool require_dw
+        +bool require_sector
+    }
+
+    class OperatingRegionGrid {
+        <<struct>>
+        +double P_min
+        +double P_max
+        +double Q_min
+        +double Q_max
+        +int n_P
+        +int n_Q
+        +double Vm
+        +double Vdc
+    }
+
+    class GfmTuningBounds {
+        <<struct>>
+        +double Kdroop_P_min
+        +double Kdroop_P_max
+        +double Kdroop_Q_min
+        +double Kdroop_Q_max
+        +int n_P
+        +int n_Q
+        +double scale_P_lo
+        +double scale_P_hi
+        +double scale_Q_lo
+        +double scale_Q_hi
+    }
+
+    %% ===== Core Sweep & Geometric Engine =====
+    class StabilityCertificate {
+        <<module>>
+        +elementAdmittance(...) MatrixXcd
+        +sweepDeviceCertificate(...) CertificateSweep
+        +sweepReturnRatioCertificate(...) CertificateSweep
+        +finalizeCertificateSweep(...) void
+        +sweepPassesSpec(...) bool
+        +passivityIndex(...) double
+        +shiftedPassivityIndex(...) double
+        +maxEigenPhaseDeg(...) double
+        +writeCertificateSweepCsv(...) void
+        +writeOperatingRegionCsv(...) void
+        +plot_certificate_figures(...) void
+    }
+
+    class GeometricCertificates {
+        <<module>>
+        +excessPassivity(...) double
+        +shortagePassivity(...) double
+        +spectralNorm(...) double
+        +numericalRangeBoundary(...) vector
+        +certifyNumericalRange(...) NumericalRangeCertificate
+        +certifyDwShell(...) DwShellCertificate
+        +loopShiftedSector(...) MatrixXcd
+        +certifySector(...) bool
+    }
+
+    class CertificateSweep {
+        <<struct>>
+        +vector~double~ freq_Hz
+        +vector~double~ passivity_index
+        +vector~double~ shifted_passivity
+        +vector~double~ max_phase_deg
+        +vector~double~ nr_phase_deg
+        +vector~double~ nr_zero_margin
+        +vector~double~ small_gain
+        +vector~double~ dw_margin
+        +bool pass_passivity
+        +bool pass_phase
+        +bool pass_nr_phase
+        +bool pass_small_gain
+        +bool pass_dw
+        +bool pass_sector
+        +double worst_passivity
+        +double worst_phase_deg
+    }
+
+    %% ===== Workflow 1: Device Gate =====
+    class DeviceGate {
+        <<module>>
+        +evaluateDeviceGate(...) DeviceGateResult
+        +reportDeviceGate(...) void
+    }
+
+    class DeviceGateResult {
+        <<struct>>
+        +string device_id
+        +CertificateSweep sweep
+        +bool allow
+        +bool pass_passivity
+        +bool pass_phase
+        +bool pass_dw
+        +bool pass_sector
+        +string reason
+    }
+
+    %% ===== Workflow 2: PnP Library =====
+    class PnPCertificateLibrary {
+        -vector~PnPDeviceRecord~ records_
+        +clear() void
+        +add(...) void
+        +addFromGate(...) void
+        +find(...) PnPDeviceRecord*
+        +isAllowed(...) bool
+        +saveJson(...) void
+        +loadJson(...) void
+        +saveCsv(...) void
+        +printSummary() void
+    }
+
+    class PnPDeviceRecord {
+        <<struct>>
+        +string device_id
+        +string device_type
+        +bool allow
+        +double worst_passivity
+        +double worst_phase_deg
+        +double worst_shifted
+        +string notes
+    }
+
+    %% ===== Workflow 3: Operating Region =====
+    class OperatingRegion {
+        <<module>>
+        +certifyOperatingRegion(...) OperatingRegionResult
+        +certifyOperatingPoints(...) OperatingRegionResult
+        +reportOperatingRegion(...) void
+    }
+
+    class OperatingRegionResult {
+        <<struct>>
+        +vector~OperatingRegionSample~ samples
+        +size_t n_certified
+        +double P_opf
+        +double Q_opf
+        +bool opf_point_certified
+    }
+
+    %% ===== Workflow 4: GFM Tuning Assistant =====
+    class TuningAssistant {
+        <<module>>
+        +tuneGfmDroops(...) GfmTuningResult
+        +reportGfmTuning(...) void
+    }
+
+    class GfmTuningResult {
+        <<struct>>
+        +bool found
+        +double Kdroop_P_best
+        +double Kdroop_Q_best
+        +CertificateSweep before
+        +CertificateSweep after
+        +vector~GfmTuningSample~ samples
+        +string message
+    }
+
+    %% ===== Workflow 5: Local vs System =====
+    class LocalVsSystem {
+        <<module>>
+        +compareLocalVsSystem(...) LocalVsSystemResult
+        +reportLocalVsSystem(...) void
+    }
+
+    class LocalVsSystemResult {
+        <<struct>>
+        +CertificateSweep local
+        +CertificateSweep system_H
+        +bool local_pass
+        +bool system_pass
+        +bool consistent
+        +string message
+    }
+
+    %% ===== External Solver / Element Links =====
+    class Element
+    class MMC
+    class StabilityEstimate
+
+    Element <|-- MMC
+
+    %% Core relationships
+    StabilityCertificate ..> CertificateSpec : configured by
+    StabilityCertificate ..> GeometricCertificates : evaluates metrics
+    StabilityCertificate ..> CertificateSweep : produces
+    StabilityCertificate ..> Element : queries Y(jw)
+    StabilityCertificate ..> StabilityEstimate : queries H = Y Z_eq
+
+    %% Workflow 1
+    DeviceGate ..> StabilityCertificate : sweeps device
+    DeviceGate ..> DeviceGateResult : returns
+    DeviceGateResult *-- CertificateSweep
+
+    %% Workflow 2
+    PnPCertificateLibrary ..> DeviceGateResult : ingests
+    PnPCertificateLibrary *-- "0..*" PnPDeviceRecord : catalogs
+
+    %% Workflow 3
+    OperatingRegion ..> MMC : re-equilibrates (P,Q)
+    OperatingRegion ..> OperatingRegionGrid : samples
+    OperatingRegion ..> StabilityCertificate : sweeps each point
+    OperatingRegion ..> OperatingRegionResult : returns
+
+    %% Workflow 4
+    TuningAssistant ..> MMC : tunes droops
+    TuningAssistant ..> GfmTuningBounds : searches
+    TuningAssistant ..> StabilityCertificate : evaluates before/after
+    TuningAssistant ..> GfmTuningResult : returns
+    GfmTuningResult *-- CertificateSweep
+
+    %% Workflow 5
+    LocalVsSystem ..> StabilityCertificate : compares sweeps
+    LocalVsSystem ..> StabilityEstimate : system H benchmark
+    LocalVsSystem ..> LocalVsSystemResult : returns
+    LocalVsSystemResult *-- CertificateSweep
+  
+  
+```
+
+</details>
+
+
+
+<!-- ***************************************************************** -->
 <!-- DQSYM -->
 <!-- ***************************************************************** -->
 
