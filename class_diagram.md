@@ -24,6 +24,8 @@ These diagrams are intended to provide an overview of the class hierarchy and th
 ---
 config:
   theme: redux-color
+  themeVariables:
+    lineColor: "#64748B"
   class:
     hideEmptyMembersBox: true
 ---
