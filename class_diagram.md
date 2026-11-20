@@ -331,10 +331,6 @@ classDiagram
 ---
 config:
   theme: redux-color
-  themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
-    lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
   class:
     hideEmptyMembersBox: true
 ---
@@ -361,10 +357,6 @@ classDiagram
 ---
 config:
   theme: redux-color
-  themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
-    lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
   class:
     hideEmptyMembersBox: true
 ---
@@ -407,6 +399,7 @@ config:
     hideEmptyMembersBox: true
 ---
 classDiagram
+ direction LR
   
   class StateSpaceModel {
         +StateSpaceModel()
