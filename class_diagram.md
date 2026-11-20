@@ -62,6 +62,8 @@ classDiagram
 ---
 config:
   theme: redux-color
+  themeVariables:
+    lineColor: "#64748B"
   class:
     hideEmptyMembersBox: true
 ---
@@ -98,6 +100,8 @@ classDiagram
 ---
 config:
   theme: redux-color
+  themeVariables:
+    lineColor: "#64748B"
   class:
     hideEmptyMembersBox: true
 ---
@@ -148,18 +152,12 @@ namespace Harmony-Elements {
   
 ```mermaid
 ---
-title: Converter
 config:
   theme: redux-color
   themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
-    padding: 16
 ---
 classDiagram
   namespace Harmony-Elements {
@@ -184,18 +182,12 @@ classDiagram
   
 ```mermaid
 ---
-title: Load
 config:
   theme: redux-color
   themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
-    padding: 16
 ---
 classDiagram
   direction LR
@@ -223,18 +215,12 @@ classDiagram
   
 ```mermaid
 ---
-title: RES
 config:
   theme: redux-color
   themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
-    padding: 16
 ---
 classDiagram
   namespace Harmony-Elements {
@@ -265,18 +251,12 @@ classDiagram
   
 ```mermaid
 ---
-title: Source
 config:
   theme: redux-color
   themeVariables:
-    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
     lineColor: "#64748B"
-    primaryTextColor: "#0F172A"
-  flowchart:
-    wrappingWidth: 450
   class:
     hideEmptyMembersBox: true
-    padding: 16
 ---
 classDiagram
   namespace Harmony-Elements {
