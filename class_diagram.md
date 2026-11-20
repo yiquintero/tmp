@@ -321,7 +321,7 @@ classDiagram
 ## Solvers
 
 <!-- ***************************************************************** -->
-<!-- SOLVERS -->
+<!-- OPF -->
 <!-- ***************************************************************** -->
 
 <details>
@@ -329,7 +329,6 @@ classDiagram
   
 ```mermaid
 ---
-title: Operational Power Flow
 config:
   theme: redux-color
   themeVariables:
@@ -346,6 +345,48 @@ classDiagram
     +make_OPF(...) void
     +make_AC_OPF(...) void
     +solve_opf(...) void
+  }
+```
+
+</details>
+
+<!-- ***************************************************************** -->
+<!-- STABILITY ESTIMATE -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Stability Estimate</summary>
+  
+```mermaid
+---
+config:
+  theme: redux-color
+  themeVariables:
+    fontFamily: Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif
+    lineColor: "#64748B"
+    primaryTextColor: "#0F172A"
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+  
+  class StabilityEstimate {
+    +StabilityEstimate()
+    +add_areas(...) void
+    +compute_equivalent_admittance_parameters_num(...) MatrixXcd
+    +setParkPerComponent(...) void
+    +getParkPerComponent() bool
+    +setYeff(...) void
+    +getYeff() bool
+    +compute_transfer_function(...) MatrixXcd
+    +compute_driving_point_impedance(...) MatrixXcd
+    +writeFileTF(...) void
+    +writeFileZin(...) void
+    +bodeplotTF(...) void
+    +nyquistplotTF(...) void
+    +print_summary() void
+    +get_ac_grids() std::unordered_map~std::string, SubNetwork*~&
+    +get_dc_grids() std::unordered_map~std::string, SubNetwork*~&
   }
 ```
 
