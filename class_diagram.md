@@ -3,7 +3,7 @@
 
 
 ## Elements
- The diagrams below illustrate the class structure and relationships of all Elements in Harmony. All Elements inherit from the `Element` base class.
+The diagrams below illustrate the class structure and relationships of all Elements in Harmony. All Elements inherit from the `Element` base class.
 
 For readability and ease of navigation, the diagrams are divided into several smaller, interconnected components rather than presenting all classes in a single diagram.
 
@@ -277,6 +277,10 @@ classDiagram
 </details>
 
 ## Solvers
+
+The diagrams below illustrate the class structure of the Solvers in Harmony. Unlike Elements, which share a common Element base class, each Solver is an independent class with its own structure and implementation. Consequently, each Solver is represented separately, without any shared class hierarchy or common structure.
+
+For detailed information about each class, including its properties and methods, please refer to the [API documentation](https://cresym.github.io/Harmony-Doc/api/index.html).
 
 <!-- ***************************************************************** -->
 <!-- Certificate -->
