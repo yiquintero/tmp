@@ -329,7 +329,27 @@ classDiagram
       +getName() std::string
       +printInfo() void
   }
+  Network <|-- SubNetwork
+```
+  
+</details>
 
+
+<!-- ***************************************************************** -->
+<!-- BUS -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Bus</summary>
+
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
   class Bus {
       +Bus(...)
       +getBusName() std::string
@@ -346,18 +366,8 @@ classDiagram
       +setOPFInfo(...) void
       +getOPFInfo() std::map~std::string, double~
   }
-
-  class Element
-
-  Network <|-- SubNetwork
-  Network *-- "0..*" Bus : owns
-  Network *-- "0..*" Element : owns
-  Network *-- "0..*" SubNetwork : ac/dc grids
-  SubNetwork o-- "0..*" Bus : outputBuses
-  Bus o-- "0..*" Element : connectedElements
-
 ```
-  
+
 </details>
 
 
