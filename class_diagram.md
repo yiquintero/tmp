@@ -279,7 +279,7 @@ classDiagram
 ## Network
 
 <details>
-  <summary>Network, Subnetwork and Bus</summary>
+  <summary>Network and Subnetwork</summary>
 
 ```mermaid
 ---
@@ -289,71 +289,72 @@ config:
     hideEmptyMembersBox: true
 ---
 classDiagram
-    class Network {
-        +Network()
-        +liveFlag() std::shared_ptr
-        +addBus(...) void
-        +addBusView(...) void
-        +addElement(...) void
-        +addElementView(...) void
-        +connectElementToBus(...) void
-        +deleteElement(...) void
-        +deleteBus(...) void
-        +printConnections() void
-        +printBuses() void
-        +printElements() void
-        +print_summary() void
-        +getBuses() std::unordered_map~std::string, Bus*~&
-        +getElements() std::unordered_map~std::string, Element*~&
-        +getConnections() Net&
-        +add_areas() void
-        +empty_areas() void
-        +is_area_empty() bool
-        +get_ac_grid_names() std::vector~std::string~
-        +get_dc_grid_names() std::vector~std::string~
-        +get_ac_grids() std::unordered_map~std::string, SubNetwork*~&
-        +get_dc_grids() std::unordered_map~std::string, SubNetwork*~&
-        +get_converters() std::unordered_map~std::string, Element*~&
-    }
+  direction LR
+  class Network {
+      +Network()
+      +liveFlag() std::shared_ptr
+      +addBus(...) void
+      +addBusView(...) void
+      +addElement(...) void
+      +addElementView(...) void
+      +connectElementToBus(...) void
+      +deleteElement(...) void
+      +deleteBus(...) void
+      +printConnections() void
+      +printBuses() void
+      +printElements() void
+      +print_summary() void
+      +getBuses() std::unordered_map~std::string, Bus*~&
+      +getElements() std::unordered_map~std::string, Element*~&
+      +getConnections() Net&
+      +add_areas() void
+      +empty_areas() void
+      +is_area_empty() bool
+      +get_ac_grid_names() std::vector~std::string~
+      +get_dc_grid_names() std::vector~std::string~
+      +get_ac_grids() std::unordered_map~std::string, SubNetwork*~&
+      +get_dc_grids() std::unordered_map~std::string, SubNetwork*~&
+      +get_converters() std::unordered_map~std::string, Element*~&
+  }
 
-    class SubNetwork {
-        +SubNetwork(...)
-        +getSubNetworkName() std::string
-        +setSubNetworkName(...) void
-        +addOutput(...) void
-        +setTransformation(...) void
-        +getTransformation() bool
-        +getOutputs() std::unordered_map~std::string, Bus*~&
-        +getNumberOfOutputs() size_t
-        +getName() std::string
-        +printInfo() void
-    }
+  class SubNetwork {
+      +SubNetwork(...)
+      +getSubNetworkName() std::string
+      +setSubNetworkName(...) void
+      +addOutput(...) void
+      +setTransformation(...) void
+      +getTransformation() bool
+      +getOutputs() std::unordered_map~std::string, Bus*~&
+      +getNumberOfOutputs() size_t
+      +getName() std::string
+      +printInfo() void
+  }
 
-    class Bus {
-        +Bus(...)
-        +getBusName() std::string
-        +getPinNumber() int
-        +getBusLocation() std::string
-        +getConnectedElements() std::vector~Element*~
-        +setBusName(...) void
-        +isGround() bool
-        +attachElement(...) void
-        +detachElement(...) void
-        +printConnectedElements() void
-        +computePowerFlowAC(...) void
-        +computePowerFlowDC(...) void
-        +setOPFInfo(...) void
-        +getOPFInfo() std::map~std::string, double~
-    }
+  class Bus {
+      +Bus(...)
+      +getBusName() std::string
+      +getPinNumber() int
+      +getBusLocation() std::string
+      +getConnectedElements() std::vector~Element*~
+      +setBusName(...) void
+      +isGround() bool
+      +attachElement(...) void
+      +detachElement(...) void
+      +printConnectedElements() void
+      +computePowerFlowAC(...) void
+      +computePowerFlowDC(...) void
+      +setOPFInfo(...) void
+      +getOPFInfo() std::map~std::string, double~
+  }
 
-    class Element
+  class Element
 
-    Network <|-- SubNetwork
-    Network *-- "0..*" Bus : owns
-    Network *-- "0..*" Element : owns
-    Network *-- "0..*" SubNetwork : ac/dc grids
-    SubNetwork o-- "0..*" Bus : outputBuses
-    Bus o-- "0..*" Element : connectedElements
+  Network <|-- SubNetwork
+  Network *-- "0..*" Bus : owns
+  Network *-- "0..*" Element : owns
+  Network *-- "0..*" SubNetwork : ac/dc grids
+  SubNetwork o-- "0..*" Bus : outputBuses
+  Bus o-- "0..*" Element : connectedElements
 
 ```
   
