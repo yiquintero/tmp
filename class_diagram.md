@@ -370,6 +370,84 @@ classDiagram
 
 </details>
 
+## Control
+
+<!-- ***************************************************************** -->
+<!-- CONTROL -->
+<!-- ***************************************************************** -->
+
+<details>
+  <summary>Filter, Integrator and Controllers</summary>
+  
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+  class ControlBlock {
+      +ControlBlock()
+      +printValues() void
+  }
+
+  class Filter {
+      +Filter(...)
+      +printValues() void
+      +updateParameters(...) void
+      +define_differential_equations(...) VectorXd
+      +getFilterSize() int
+  }
+
+  class Integrator {
+      +Integrator()
+      +define_differential_equations(...) Eigen::VectorXd
+  }
+
+  class Controller {
+      +Controller(...)
+      +define_equations(...) Eigen::VectorXd
+      +printValues() void
+      +setReference(...) void
+      +getReference() std::vector~double~
+      +getControllerSymbol() std::string
+      +getNumberOfSignals() int
+      +getParameters() std::vector~double~
+      +setParameters(...) void
+  }
+
+  class ProportionalController {
+      +ProportionalController(...)
+      +define_equations(...) Eigen::VectorXd
+      +printValues() void
+      +getK() double
+      +setK(...) void
+      +getParameters() std::vector~double~
+      +setParameters(...) void
+  }
+
+  class ProportionalIntegralController {
+      +ProportionalIntegralController(...)
+      +updateParameters(...) void
+      +define_equations(...) Eigen::VectorXd
+      +printValues() void
+      +getKp() double
+      +getKi() double
+      +getZeta() double
+      +getBandwidth() double
+      +getParameters() std::vector~double~
+      +setParameters(...) void
+  }
+
+  ControlBlock <|-- Filter
+  ControlBlock <|-- Integrator
+  ControlBlock <|-- Controller
+  Controller <|-- ProportionalController
+  Controller <|-- ProportionalIntegralController
+```
+
+</details>
 
 ## Solvers
 
