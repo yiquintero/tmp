@@ -276,9 +276,93 @@ classDiagram
 
 </details>
 
+## Network
+
+<details>
+  <summary>Network, Subnetwork and Bus</summary>
+
+```mermaid
+---
+config:
+  theme: redux-color
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+    class Network {
+        +Network()
+        +liveFlag() std::shared_ptr
+        +addBus(...) void
+        +addBusView(...) void
+        +addElement(...) void
+        +addElementView(...) void
+        +connectElementToBus(...) void
+        +deleteElement(...) void
+        +deleteBus(...) void
+        +printConnections() void
+        +printBuses() void
+        +printElements() void
+        +print_summary() void
+        +getBuses() std::unordered_map~std::string, Bus*~&
+        +getElements() std::unordered_map~std::string, Element*~&
+        +getConnections() Net&
+        +add_areas() void
+        +empty_areas() void
+        +is_area_empty() bool
+        +get_ac_grid_names() std::vector~std::string~
+        +get_dc_grid_names() std::vector~std::string~
+        +get_ac_grids() std::unordered_map~std::string, SubNetwork*~&
+        +get_dc_grids() std::unordered_map~std::string, SubNetwork*~&
+        +get_converters() std::unordered_map~std::string, Element*~&
+    }
+
+    class SubNetwork {
+        +SubNetwork(...)
+        +getSubNetworkName() std::string
+        +setSubNetworkName(...) void
+        +addOutput(...) void
+        +setTransformation(...) void
+        +getTransformation() bool
+        +getOutputs() std::unordered_map~std::string, Bus*~&
+        +getNumberOfOutputs() size_t
+        +getName() std::string
+        +printInfo() void
+    }
+
+    class Bus {
+        +Bus(...)
+        +getBusName() std::string
+        +getPinNumber() int
+        +getBusLocation() std::string
+        +getConnectedElements() std::vector~Element*~
+        +setBusName(...) void
+        +isGround() bool
+        +attachElement(...) void
+        +detachElement(...) void
+        +printConnectedElements() void
+        +computePowerFlowAC(...) void
+        +computePowerFlowDC(...) void
+        +setOPFInfo(...) void
+        +getOPFInfo() std::map~std::string, double~
+    }
+
+    class Element
+
+    Network <|-- SubNetwork
+    Network *-- "0..*" Bus : owns
+    Network *-- "0..*" Element : owns
+    Network *-- "0..*" SubNetwork : ac/dc grids
+    SubNetwork o-- "0..*" Bus : outputBuses
+    Bus o-- "0..*" Element : connectedElements
+
+```
+  
+</details>
+
+
 ## Solvers
 
-The diagrams below illustrate the class structure of the Solvers in Harmony. Unlike Elements, which share a common Element base class, each Solver is an independent class with its own structure and implementation. Consequently, each Solver is represented separately, without any shared class hierarchy or common structure.
+The diagrams below illustrate the class structure of the solvers in Harmony. Unlike elements, which share a common `element` base class, each solver is an independent class with its own structure and implementation. Consequently, each solver is represented separately, without any shared class hierarchy or common structure.
 
 For detailed information about each class, including its properties and methods, please refer to the [API documentation](https://cresym.github.io/Harmony-Doc/api/index.html).
 
