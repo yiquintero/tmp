@@ -1,5 +1,11 @@
 
 ```mermaid
+---
+config:
+  theme: redux-color
+  themeVariables:
+    lineColor: "#64748B"
+---
 flowchart TD
     USER["User"]
 
