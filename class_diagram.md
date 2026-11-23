@@ -22,7 +22,7 @@ flowchart LR
   end
   subgraph JSONPIPE["JSON simulation pipeline<br><i>src/json/</i>"]
     J1["Build elements"]
-    J2["Assemble and validate grid"]
+    J2["Assemble and<br>validate grid"]
     J3["Run Simulation"]
   end
   J1 --> J2
