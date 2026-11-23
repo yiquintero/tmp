@@ -2,6 +2,7 @@
 
 <details>
   <summary>Application</summary>
+  
 ```mermaid
 ---
 config:
@@ -31,6 +32,7 @@ flowchart LR
   GUI --> RUNNER
   RUNNER --> CPPREG & J1
 ```
+  
 </details>
 
 ## Elements
