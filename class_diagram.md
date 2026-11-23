@@ -12,15 +12,15 @@ config:
 ---
 flowchart LR
   subgraph ENTRY["Harmony entry points"]
-    CLI["CLI<br><small>src/main.cpp</small>"]
-    GUI["GUI<br><small>src/ui/harmony_ui_main.cpp</small>"]
+    CLI["CLI<br><i>src/main.cpp</i>"]
+    GUI["GUI<br><i>src/ui/harmony_<br>ui_main.cpp</i>"]
   end
   subgraph RUN["Execution layer"]
-    RUNNER["Unified CLI runner<br>src/ui/cli.cpp"]
-    CPPREG["Example registry<br><small>src/examples/</small>"]
+    RUNNER["Unified CLI runner<br><i>src/ui/cli.cpp</i>"]
+    CPPREG["Example registry<br><i>src/examples/</i>"]
     JSONPIPE
   end
-  subgraph JSONPIPE["JSON simulation pipeline<br><small>src/json</small>"]
+  subgraph JSONPIPE["JSON simulation pipeline<br><i>src/json/</i>"]
     J1["Build elements"]
     J2["Assemble and validate grid"]
     J3["Run Simulation"]
