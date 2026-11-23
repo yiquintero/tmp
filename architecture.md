@@ -6,7 +6,7 @@ config:
   themeVariables:
     lineColor: '#64748B'
 ---
-flowchart LR
+flowchart
  subgraph ENTRY["Harmony entry points"]
         CLI["CLI<br>src/main.cpp"]
         GUI["GUI<br>src/ui/harmony_ui_main.cpp"]
